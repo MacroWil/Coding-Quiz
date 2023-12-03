@@ -10,13 +10,25 @@ const quizData = [
     correctAnswer: "Mars",
   },
   {
-    question: "What is the largest mammal in the world?",
-    answers: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-    correctAnswer: "Blue Whale",
+    question: "What is the airspeed velocity of the average unladen Swallow?",
+    answers: ["17.8 MPH", "20.1 MPH", "45.6 MPH", "4 MPH"],
+    correctAnswer: "20.1 MPH",
+  },
+  {
+    question: "What is the diameter of the Sun in miles?",
+    answers: ["1028.4 Miles", "485.86 Miles", "930.25 Miles", "1101.01 Miles"],
+    correctAnswer: "930.25 Miles",
+  },
+  {
+    question: "What is the capitol of Assyria?",
+    answers: ["Assur", "Yangiyul", "Poland", "Tashkent"],
+    correctAnswer: "Assur",
   },
   // Add more questions as needed
 ];
-
+var highscore;
+var initialsStore;
+const highscoresList = $("#highscores-list");
 var currentQuestion = 0;
 var score = 0;
 var timeInterval;
@@ -102,7 +114,10 @@ function checkAnswer(answer) {
         .html(`<h2>Your Score: ${score} out of ${quizData.length}</h2>`)
         .css("color", "white");
       $("#next-btn").hide();
+      window.currentQuestion = 0;
+      $("#initials").val("");
       enterHighscores();
+
       times = -5;
     }, 1000);
     return;
@@ -118,7 +133,7 @@ $("#highscores-btn").click(function showHighscores() {
   $("#title").hide();
   $("#highscores-btn").hide();
   $("#back-btn").show();
-  loadHighscores(); // Load highscores when the highscores screen is displayed
+  displayScores(); // Load highscores when the highscores screen is displayed
 });
 
 function showHighscores() {
@@ -134,8 +149,17 @@ function showHighscores() {
   $("#initials").hide();
   $("#submit-btn").hide();
   $("#entry-container").hide();
-  loadHighscores(); // Load highscores when the highscores screen is displayed
 }
+$("#back-btn").click(function () {
+  $("#start-btn").show();
+  $("#question-container").hide();
+  $("#highscores-btn").show();
+  $("#title").show();
+  $("#back-btn").hide();
+  $("#highscores-list").hide();
+  $("#highscore-title").hide();
+  $("#initials").hide();
+});
 
 function enterHighscores() {
   $("#quiz-container").hide();
@@ -160,39 +184,39 @@ function enterHighscores() {
   $("#submit-btn").click(function () {
     if (initials === "") {
       alert("error. initials cannot be blank");
-    } else {
+    }
+    if (initials !== "") {
       alert("success. Registered successfully");
       var initialsStore = $("#initials").val();
       console.log(initialsStore);
-      //   localStorage.setItem("highscores", JSON.stringify(savedHighscores));
+      window.highscore = initialsStore;
+
+      const savedHighscores =
+        JSON.parse(localStorage.getItem("highscores")) || [];
+      savedHighscores.push({ initials: highscore, score });
+      savedHighscores.sort((a, b) => b.score - a.score); // Sort highscores in descending order
+
+      localStorage.setItem("highscores", JSON.stringify(savedHighscores));
+      window.highscore;
+      window.initialsStore;
+      window.score = 0;
+      window.currentQuestion = 0;
+      window.timeInterval;
+      window.times;
+      displayScores();
       showHighscores();
     }
   });
 }
 
-$("#back-btn").click(function () {
-  $("#start-btn").show();
-  $("#question-container").hide();
-  $("#highscores-btn").show();
-  $("#title").show();
-  $("#back-btn").hide();
-  $("#highscores-list").hide();
-  $("#highscore-title").hide();
-  $("#initials").hide();
-});
-
-function loadHighscores() {
-  const highscoresList = $("#highscores-list");
+function displayScores() {
   const savedHighscores = JSON.parse(localStorage.getItem("highscores")) || [];
-
-  // Display highscores
   highscoresList.empty();
   savedHighscores.forEach((entry, index) => {
     highscoresList.append(
       `<li>${index + 1}. ${entry.initials} - ${entry.score}</li>`
     );
   });
+  window.score = 0;
 }
-
-//when i run out of questions it displays my score and asks me to enter my initials.
 //when io have eneted my information it sends me to the highscores screen.
