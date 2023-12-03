@@ -181,33 +181,33 @@ function enterHighscores() {
       `);
   var initials = $("#initials").value;
   console.log(initials);
-  $("#submit-btn").click(function () {
-    if (initials === "") {
-      alert("error. initials cannot be blank");
-    }
-    if (initials !== "") {
-      alert("success. Registered successfully");
-      var initialsStore = $("#initials").val();
-      console.log(initialsStore);
-      window.highscore = initialsStore;
-
-      const savedHighscores =
-        JSON.parse(localStorage.getItem("highscores")) || [];
-      savedHighscores.push({ initials: highscore, score });
-      savedHighscores.sort((a, b) => b.score - a.score); // Sort highscores in descending order
-
-      localStorage.setItem("highscores", JSON.stringify(savedHighscores));
-      window.highscore;
-      window.initialsStore;
-      window.score = 0;
-      window.currentQuestion = 0;
-      window.timeInterval;
-      window.times;
-      displayScores();
-      showHighscores();
-    }
-  });
 }
+$("#submit-btn").click(function () {
+  if (initials === "") {
+    alert("error. initials cannot be blank");
+  }
+  if (initials !== "") {
+    alert("success. Registered successfully");
+    var initialsStore = $("#initials").val();
+    console.log(initialsStore);
+    window.highscore = initialsStore;
+
+    const savedHighscores =
+      JSON.parse(localStorage.getItem("highscores")) || [];
+    savedHighscores.push({ initials: highscore, score });
+    savedHighscores.sort((a, b) => b.score - a.score); // Sort highscores in descending order
+
+    localStorage.setItem("highscores", JSON.stringify(savedHighscores));
+    window.highscore;
+    window.initialsStore;
+    window.score = 0;
+    window.currentQuestion = 0;
+    window.timeInterval;
+    window.times;
+    displayScores();
+    showHighscores();
+  }
+});
 
 function displayScores() {
   const savedHighscores = JSON.parse(localStorage.getItem("highscores")) || [];
