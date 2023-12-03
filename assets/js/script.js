@@ -150,6 +150,7 @@ function showHighscores() {
   $("#submit-btn").hide();
   $("#entry-container").hide();
 }
+
 $("#back-btn").click(function () {
   $("#start-btn").show();
   $("#question-container").hide();
@@ -219,4 +220,3 @@ function displayScores() {
   });
   window.score = 0;
 }
-//when io have eneted my information it sends me to the highscores screen.
