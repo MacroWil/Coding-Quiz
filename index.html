@@ -2,14 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>jQuery Shopping List</title>
+    <title>CODE QUIZ!</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
-
+  <header>
+    <button id="highscores-btn">View Highscores</button>
+    <div id="timer-container"></div>
+  </header>
   <body>
-    <main>
-      <h1></h1>
-    </main>
+    <div class="quiz-container">
+      <h1 id="title">Quiz Time!</h1>
+      <h1 id="highscore-title">High Scores.</h1>
+      <button id="start-btn">Start Quiz</button>
+      <div id="highscores-list" style="display: none"></div>
+      <div id="question-container" style="display: none"></div>
+      <div id="entry-container" style="display: none"></div>
+      <input type="text" name="initials" id="initials" placeholder="J.S." />
+      <button id="back-btn" style="display: none">Back to Start screen?</button>
+      <button id="submit-btn" style="display: none">Submit Highscore</button>
+    </div>
+
+    <div id="feedback-container"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>

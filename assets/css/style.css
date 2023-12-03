@@ -1,16 +1,125 @@
-main {
-  margin: 3rem auto;
-  max-width: 90vw;
-  width: 50ch;
+body {
+  background-color: #2e3f4a;
+  color: white;
+}
+
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+#question-container {
+  background-color: #f0f0f0;
+  padding: 10px;
+  color: #2e3f4a;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 ul {
-  margin: 3rem auto;
-  font-size: 1.75rem;
+  list-style: none;
   padding: 0;
-  list-style-type: none;
 }
 
-ul li {
-  margin: 1.2rem 0;
+li {
+  background-color: #3498db; /* Blue background for answer options */
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+}
+
+input {
+  background-color: #f1f3f4;
+  border-radius: 2px;
+  color: #2e3f4a;
+  border-width: 0;
+  font-size: 1em;
+  height: 45px;
+  line-height: 20px;
+  margin: 0;
+  margin-top: 10px;
+  max-width: 100%;
+  padding: 8px 8px 8px 8px;
+  transition-delay: 0s, 0s;
+  transition-duration: 0.2s, 0.2s;
+  transition-property: background-color, color;
+  transition-timing-function: ease, ease;
+  vertical-align: middle;
+  width: 100%;
+}
+
+input:hover {
+  background-color: #e8eaed;
+}
+
+#feedback-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #3498db; /* Blue background for feedback container */
+  color: white;
+  font-weight: bold;
+  display: none;
+}
+
+#highscores-container {
+  display: none;
+  background-color: #3498db; /* Blue background for highscores container */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#highscores-btn {
+  background-color: #e74c3c; /* Red background for Highscores button */
+  color: white;
+  justify-content: left;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+#submit-btn {
+  background-color: #e74c3c; /* Red background for Highscores button */
+  color: white;
+  justify-content: left;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+#entry-container {
+  text-align: center;
+  margin-bottom: 10px;
+  justify-content: right;
+}
+#timer-container {
+  position: fixed;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  display: none;
+  text-align: center;
+  margin-bottom: 10px;
+  justify-content: right;
+}
+
+#highscores-list {
+  list-style: none;
+  padding: 0;
+}
+
+#highscores-list li {
+  margin-bottom: 5px;
 }
