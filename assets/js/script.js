@@ -15,7 +15,7 @@ const quizData = [
     correctAnswer: "20.1 MPH",
   },
   {
-    question: "What is the diameter of the Sun in miles?",
+    question: "What is the square root of the diameter of the Sun in miles?",
     answers: ["1028.4 Miles", "485.86 Miles", "930.25 Miles", "1101.01 Miles"],
     correctAnswer: "930.25 Miles",
   },
