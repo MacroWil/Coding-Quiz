@@ -27,7 +27,7 @@ various stackOverflow atricles on how to display scores in a list from local sto
 
 ## Features
 
-Functional links [LINK TO ONLINE SITE] (https://macrowil.github.io/Coding-Quiz/)
+Functional links [LINK TO ONLINE SITE](https://macrowil.github.io/Coding-Quiz/)
 
 ## Screenshot
 
